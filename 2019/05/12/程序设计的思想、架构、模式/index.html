@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="这是一篇摘抄，介绍了在软件开发中思想、架构、模式、框架这些概念。 思想 编程范型、编程范式、编程思想或程序设计方法（Programming Paradigm） 编程范式">
+<meta name="keywords" content="bob,html5,php,wechat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="程序设计的思想、架构、模式">
+<meta property="og:url" content="http://yoursite.com/2019/05/12/程序设计的思想、架构、模式/index.html">
+<meta property="og:site_name" content="Bob&#39;s blog">
+<meta property="og:description" content="这是一篇摘抄，介绍了在软件开发中思想、架构、模式、框架这些概念。 思想 编程范型、编程范式、编程思想或程序设计方法（Programming Paradigm） 编程范式">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-05-12T05:59:18.355Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="程序设计的思想、架构、模式">
+<meta name="twitter:description" content="这是一篇摘抄，介绍了在软件开发中思想、架构、模式、框架这些概念。 思想 编程范型、编程范式、编程思想或程序设计方法（Programming Paradigm） 编程范式">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/12/程序设计的思想、架构、模式/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>程序设计的思想、架构、模式 | Bob's blog</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?5ba1c0e1ff57eaefc1a74c898f4189cf";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bob's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/12/程序设计的思想、架构、模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bob Liaos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bob's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">程序设计的思想、架构、模式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-12 12:26:39 / Modified: 13:59:18" itemprop="dateCreated datePublished" datetime="2019-05-12T12:26:39+08:00">2019-05-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这是一篇摘抄，介绍了在软件开发中思想、架构、模式、框架这些概念。</p>
+<h2 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h2><p><strong> 编程范型、编程范式、编程思想或程序设计方法（Programming Paradigm） </strong><br><a href="https://zh.wikipedia.org/wiki/%E7%BC%96%E7%A8%8B%E8%8C%83%E5%9E%8B" target="_blank" rel="noopener">编程范式</a></p>
+<a id="more"></a>
+<ul>
+<li>面向代理（AOP:Agent-oriented Programming），相对于OOP，以代理人为核心</li>
+<li>声明式编程（Declarative Programming），包括数据库查询语言（SQL）、正则表达式、逻辑编程、函数式编程和组态管理系统，常用解决人工智能和约束满足问题，对应为命令式编程<ul>
+<li>函数式编程（Functional Programming），语言:Haskell/F#/Scala/Erlang/Lisp/R</li>
+</ul>
+</li>
+<li>命令式编程（Imperative Programming），运算语句、循环语句、条件分支语句、无条件分支语句（GOTO），语言:FORTRAN<ul>
+<li>非结构化，语言:BASIC/机器语言/早期汇编语言</li>
+<li>结构化（Structured Programming），使用子程序、代码区块、for循环、while循环等结构代替GOTO<ul>
+<li>面向过程（Procedural Programming）：Linux内核、git、Apache HTTP Server等</li>
+<li>面向对象（OOP:Object-oriented Programming），将对象作为程序的基本单元，语言:Python、C++、Objective-C、Delphi、Java、Swift、C#、Perl、Ruby、PHP<ul>
+<li>基于类（Class-orientation Programming），所有创建对象都是类的实例</li>
+<li>基于原型（Prototype-based Programming），类不是实时的，且行为重用，语言：Self、JavaScript</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>元编程（Metaprogramming），最常见的元编程工具是编译器，操作其他程序，或在运行中完成部分编译工作<ul>
+<li>自动<ul>
+<li>泛型，允许在强类型语言中使用以后才置顶的类型<ul>
+<li>模版</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>反射式，在运行时可以访问、检测和修改它本身，如用汇编来汇编</li>
+<li>宏（Macro）</li>
+</ul>
+</li>
+<li>事件驱动（Event-driven Programming），图形用户界面<ul>
+<li>面向服务（SOA：Service-oriented Architecture）</li>
+</ul>
+</li>
+<li>并行计算（Parallel Computing）</li>
+</ul>
+<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><p><strong> 有关软件整体结构与组件的抽象描述，用于知道大型软件系统各方面的设计 </strong></p>
+<p>定义和设计软件的模块化、模块之间的交互、用户界面风格、对外接口方法、创新的设计特性，以及高层事物的对象操作、逻辑和流程。</p>
+<p>可以用UML视图来表示</p>
+<h2 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h2><blockquote>
+<p>1、代码模式或成例(Coding Pattern 或 Idiom)<br>　　代码模式（或成例）是较低层次的模式，并与编程语言密切相关。代码模式描述怎样利用一个特定的编程语言的特点来实现一个组件的某些特定的方面或关系。<br>　　较为著名的代码模式的例子包括双检锁（Double-Check Locking）模式等。<br>    2、设计模式(Design Pattern)<br>　　一个设计模式提供一种提炼子系统或软件系统中的组件的，或者它们之间的关系的纲要设计。设计模式描述普遍存在的在相互通讯的组件中重复出现的结构，这种结构解决在一定的背景中的具有一般性的设计问题。<br>　　设计模式常常划分成不同的种类，常见的种类有：<br>　　创建型设计模式，如工厂方法（Factory Method）模式、抽象工厂（Abstract Factory）模式、原型（Prototype）模式、单例（Singleton）模式，建造（Builder）模式等<br>　　结构型设计模式，如合成（Composite）模式、装饰（Decorator）模式、代理（Proxy）模式、享元（Flyweight）模式、门面（Facade）模式、桥梁（Bridge）模式等<br>　　行为型模式，如模版方法（Template Method）模式、观察者（Observer）模式、迭代子（Iterator）模式、责任链（Chain of Responsibility）模式、备忘录（Memento）模式、命令（Command）模式、状态（State）模式、访问者（Visitor）模式等等。<br>        以上是三种经典类型，实际上还有很多其他的类型，比如Fundamental型、Partition型，Relation型等等<br>　　设计模式在特定的编程语言中实现的时候，常常会用到代码模式。比如单例（Singleton）模式的实现常常涉及到双检锁（Double-Check Locking）模式等。<br>　　3、架构模式(Architectural Pattern)<br>　　一个架构模式描述软件系统里的基本的结构组织或纲要。架构模式提供一些事先定义好的子系统，指定它们的责任，并给出把它们组织在一起的法则和指南。有些作者把这种架构模式叫做系统模式[STELTING02]。<br>　　一个架构模式常常可以分解成很多个设计模式的联合使用。显然，MVC模式就是属于这一种模式。MVC模式常常包括调停者（Mediator）模式、策略（Strategy）模式、合成（Composite）模式、观察者（Observer）模式等。<br>　　此外，常见的架构模式还有：<br>　　·Layers（分层）模式，有时也称Tiers模式<br>　　·Blackboard（黑板）模式<br>　　·Broker（中介）模式<br>　　·Distributed Process（分散过程）模式<br>　　·Microkernel（微核）模式<br>　　架构模式常常划分成如下的几种：<br>　　一）、 From Mud to Structure型。帮助架构师将系统合理划分，避免形成一个对象的海洋（A sea of objects）。包括Layers（分层）模式、Blackboard（黑板）模式、Pipes/Filters（管道/过滤器）模式等。<br>　　二）、分散系统（Distributed Systems）型。为分散式系统提供完整的架构设计，包括像Broker（中介）模式等。<br>　　三）、人机互动（Interactive Systems）型，支持包含有人机互动介面的系统的架构设计，例子包括MVC（Model-View-Controller）模式、PAC（Presentation-Abstraction-Control）模式等。<br>　　四）、Adaptable Systems型，支持应用系统适应技术的变化、软件功能需求的变化。如Reflection（反射）模式、Microkernel（微核）模式等。<br><a href="http://fanqiang.chinaunix.net/program/project/2005-06-16/3316.shtml" target="_blank" rel="noopener">引用源</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/15/Windows环境下Electron调用CMD命令行命令/" rel="next" title="Windows环境下Electron调用CMD命令行命令">
+                <i class="fa fa-chevron-left"></i> Windows环境下Electron调用CMD命令行命令
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNjAxNi8xMjU1Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Bob Liaos" />
+            
+              <p class="site-author-name" itemprop="name">Bob Liaos</p>
+              <p class="site-description motion-element" itemprop="description">Bob's blog</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/bobliaos" target="_blank" title="GitHbu"><i class="fa fa-fw fa-globe"></i>GitHbu</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#思想"><span class="nav-number">1.</span> <span class="nav-text">思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#架构"><span class="nav-number">2.</span> <span class="nav-text">架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模式"><span class="nav-number">3.</span> <span class="nav-text">模式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bob Liaos</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.2.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
